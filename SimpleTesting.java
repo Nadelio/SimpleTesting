@@ -79,8 +79,8 @@ public class SimpleTesting<T, R> {
             R expectedResult = expectedResults[i];
             try {
                 R result = operation.apply((T) testCase);
-                if (result.equals(expectedResult)) logger.debug("Test case failed. Expected: " + expectedResult.toString() + ", but got: " + result.toString(), file, 2);
-                logger.debug("Test case passed.", file, 2);
+                if (!result.equals(expectedResult)) logger.debug("Test case failed. Expected: " + expectedResult.toString() + ", but got: " + result.toString(), file, 2);
+                else logger.debug("Test case passed.", file, 2);
             } catch (Exception e) {
                 logger.debug("Test case failed with exception: " + e.getMessage(), file, 2);
             }
